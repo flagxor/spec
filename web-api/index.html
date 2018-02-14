@@ -4,11 +4,11 @@
   <title>WebAssembly Web API</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <meta content="WD" name="w3c-status">
-  <meta content="This document describes the integration of WebAssembly with the broader web platform. To be used in coordination with the <a href=&quot;https://www.w3.org/TR/2018/WD-wasm-core-1/&quot;>WebAssembly Core Specification</a> and the <a href=&quot;https://www.w3.org/TR/2018/WD-wasm-js-api-1/&quot;>WebAssembly JavaScript Interface</a>." name="abstract">
+  <meta content="This document describes the integration of WebAssembly with the broader web platform. To be used in coordination with the <a href=&quot;https://www.w3.org/TR/wasm-core/&quot;>WebAssembly Core Specification</a> and the <a href=&quot;https://www.w3.org/TR/wasm-js-api/&quot;>WebAssembly JavaScript Interface</a>." name="abstract">
   <link href="https://www.w3.org/StyleSheets/TR/2016/W3C-WD" rel="stylesheet" type="text/css">
-  <meta content="Bikeshed version 549748cf00f6303618e14a7868fb2ecd5725161f" name="generator">
-  <link href="https://www.w3.org/TR/2018/WD-wasm-web-api-1/" rel="canonical">
-  <meta content="831fa7399ab3cd7f1f48e741b2107fd80b4eae04" name="document-revision">
+  <meta content="Bikeshed version 48a5fa9bfecea63b6fff58e17a4c6c2708f86fd8" name="generator">
+  <link href="https://www.w3.org/TR/wasm-web-api/" rel="canonical">
+  <meta content="6700fd992e907061a6c5136c79504acbc0b3a7f7" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -253,21 +253,21 @@ pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em
 </style>
  <body class="h-entry">
   <div class="head">
-   <p data-fill-with="logo"></p>
+   <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">WebAssembly Web API</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">W3C First Public Working Draft, <time class="dt-updated" datetime="2018-02-13">13 February 2018</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">W3C First Public Working Draft, <time class="dt-updated" datetime="2018-02-14">14 February 2018</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="https://www.w3.org/TR/2018/WD-wasm-web-api-1-20180213/">https://www.w3.org/TR/2018/WD-wasm-web-api-1-20180213/</a>
+     <dd><a class="u-url" href="https://www.w3.org/TR/2018/WD-wasm-web-api-1-20180214/">https://www.w3.org/TR/2018/WD-wasm-web-api-1-20180214/</a>
      <dt>Latest published version:
-     <dd><a href="https://www.w3.org/TR/2018/WD-wasm-web-api-1/">https://www.w3.org/TR/2018/WD-wasm-web-api-1/</a>
+     <dd><a href="https://www.w3.org/TR/wasm-web-api/">https://www.w3.org/TR/wasm-web-api/</a>
      <dt>Editor's Draft:
      <dd><a href="https://webassembly.github.io/spec/web-api/">https://webassembly.github.io/spec/web-api/</a>
-     <dt>Issue Tracking:
-     <dd><a href="https://github.com/WebAssembly/spec/issues/">GitHub</a>
      <dt class="editor">Editor:
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Daniel Ehrenberg (Igalia)</span>
+     <dt>Issue Tracking:
+     <dd><a href="https://github.com/WebAssembly/spec/labels/wasm-web-api-1">GitHub Issues</a>
     </dl>
    </div>
    <div data-fill-with="warning"></div>
@@ -276,30 +276,36 @@ pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>This document describes the integration of WebAssembly with the broader web platform. To be used in coordination with the <a href="https://www.w3.org/TR/2018/WD-wasm-core-1/">WebAssembly Core Specification</a> and the <a href="https://www.w3.org/TR/2018/WD-wasm-js-api-1/">WebAssembly JavaScript Interface</a>.</p>
+   <p>This document describes the integration of WebAssembly with the broader web platform. To be used in coordination with the <a href="https://www.w3.org/TR/wasm-core/">WebAssembly Core Specification</a> and the <a href="https://www.w3.org/TR/wasm-js-api/">WebAssembly JavaScript Interface</a>.</p>
+    Part of a collection of related documents:
+the <a href="https://www.w3.org/TR/wasm-core/">Core WebAssembly Specification</a>,
+the <a href="https://www.w3.org/TR/wasm-js-api/">WebAssembly JS Interface</a>,
+and the <a href="https://www.w3.org/TR/wasm-web-api/">WebAssembly Web API</a>. 
   </div>
   <h2 class="no-num no-toc no-ref heading settled" id="status"><span class="content">Status of this document</span></h2>
   <div data-fill-with="status">
-   <p> This section describes the status of this document at the time of
-  its publication. Other documents may supersede this document. A list of
-  current W3C publications and the latest revision of this technical report
-  can be found in the <a href="https://www.w3.org/TR/">W3C technical reports
-  index at https://www.w3.org/TR/</a>. </p>
-   <p>This document is a <b>First Public Working Draft</b>.</p>
-   <p> Publication as a First Public Working Draft does not imply endorsement
-  by the W3C Membership. This is a draft document and may be updated,
-  replaced or obsoleted by other documents at any time. It is inappropriate
-  to cite this document as other than work in progress. </p>
-   <p> <a href="https://github.com/WebAssembly/spec/issues">GitHub Issues</a> are preferred for discussion of this specification.
-  All issues and comments are <a href="https://github.com/WebAssembly/spec/issues?utf8=%E2%9C%93&amp;q=is%3Aissue++">archived</a>. </p>
-   <p>This document was produced by the <a href="https://www.w3.org/wasm/">WebAssembly Working Group</a>.</p>
-   <p>This document was produced by a group operating under the <a href="https://www.w3.org/Consortium/Patent-Policy/">W3C Patent Policy</a>.
-  W3C maintains a <a href="https://www.w3.org/2004/01/pp-impl/101196/status" rel="disclosure">public list of any patent disclosures</a> made in
-  connection with the deliverables of the group; that page also includes
-  instructions for disclosing a patent. An individual who has actual
-  knowledge of a patent which the individual believes contains <a href="https://www.w3.org/Consortium/Patent-Policy/#def-essential">Essential Claim(s)</a> must disclose the information in accordance with <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Disclosure">section
-  6 of the W3C Patent Policy</a>. </p>
-   <p>This document is governed by the <a href="https://www.w3.org/2018/Process-20180201/" id="w3c_process_revision">1 February 2018 W3C Process Document</a>. </p>
+   <p><em>This section describes the status of this document at the time of
+   its publication. Other documents may supersede this document. A list of
+   current W3C publications and the latest revision of this technical report
+   can be found in the <a href="https://www.w3.org/TR/">W3C technical reports
+   index at https://www.w3.org/TR/.</a></em> </p>
+   <p>This document is a <b>First Public Working Draft</b>. </p>
+   <p>Publication as a First Public  Working Draft does not imply endorsement by the W3C
+   Membership. This is a draft document and may be updated, replaced or
+   obsoleted by other documents at any time. It is inappropriate to cite this
+   document as other than work in progress. </p>
+   <p><a href="https://github.com/WebAssembly/spec/issues">GitHub Issues</a> are preferred for discussion of this specification.
+    When filing an issue, please put the text “wasm-web-api” in the title,
+    preferably like this:
+    “[wasm-web-api] <i>…summary of comment…</i>”. </p>
+   <p>This document was produced by the <a href="https://www.w3.org/wasm/">WebAssembly Working Group</a>. </p>
+   <p>This document was produced by a group operating under the <a href="https://www.w3.org/Consortium/Patent-Policy/"> W3C Patent Policy</a>. W3C maintains a <a href="https://www.w3.org/2004/01/pp-impl/32061/status" rel="disclosure">public list of any patent disclosures</a> made in
+   connection with the deliverables of the group; that page also includes
+   instructions for disclosing a patent. An individual who has actual
+   knowledge of a patent which the individual believes contains <a href="https://www.w3.org/Consortium/Patent-Policy/#def-essential">Essential
+   Claim(s)</a> must disclose the information in accordance with <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Disclosure">section
+   6 of the W3C Patent Policy</a>.</p>
+   <p>This document is governed by the <a href="https://www.w3.org/2018/Process-20180201/" id="w3c_process_revision">1 February 2018 W3C Process Document</a>.</p>
    <p></p>
   </div>
   <div data-fill-with="at-risk"></div>
