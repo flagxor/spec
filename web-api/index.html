@@ -7,7 +7,7 @@
   <meta content="This document describes the integration of WebAssembly with the broader web platform." name="abstract">
   <meta content="Bikeshed version b31f1e9805200d6f8b81e5c79ca9f1a3073ff40f" name="generator">
   <link href="https://www.w3.org/TR/wasm-web-api-1/" rel="canonical">
-  <meta content="ed1db4e1c8079021eddc1d9a98fdcd0fd0b8b39d" name="document-revision">
+  <meta content="e760d8b853e36636d116cd93c0e859f10d21f9cf" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -278,9 +278,9 @@ pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
    <p>This document describes the integration of WebAssembly with the broader web platform.</p>
     Part of a collection of related documents:
-the <a href="https://www.w3.org/TR/wasm-core-1/">Core WebAssembly Specification</a>,
-the <a href="https://www.w3.org/TR/wasm-js-api-1/">WebAssembly JS Interface</a>,
-and the <a href="https://www.w3.org/TR/wasm-web-api-1/">WebAssembly Web API</a>. 
+the <a href="https://www.w3.org/TR/wasm-core/">Core WebAssembly Specification</a>,
+the <a href="https://www.w3.org/TR/wasm-js-api/">WebAssembly JS Interface</a>,
+and the <a href="https://www.w3.org/TR/wasm-web-api/">WebAssembly Web API</a>. 
   </div>
   <h2 class="no-num no-toc no-ref heading settled" id="status"><span class="content">Status of this document</span></h2>
   <div data-fill-with="status">
@@ -422,7 +422,7 @@ It has the following format:</p>
     <li data-md="">
      <p><code>${url}</code> is the URL associated with the module, if applicable (see notes).</p>
     <li data-md="">
-     <p><code>${funcIndex}</code> is the <a data-link-type="dfn" href="https://webassembly.github.io/spec/multipage/syntax/modules.html#syntax-funcidx" id="ref-for-syntax-funcidx">function index</a> relative to the module.</p>
+     <p><code>${funcIndex}</code> is the <a data-link-type="dfn" href="https://webassembly.github.io/spec/core/multipage/syntax/modules.html#syntax-funcidx" id="ref-for-syntax-funcidx">function index</a> relative to the module.</p>
     <li data-md="">
      <p><code>${pcOffset}</code> is the offset in the module binary of the first byte of the instruction, printed in hexadecimal with lower-case digits, with a leading <code>0x</code> prefix.</p>
    </ul>
@@ -550,7 +550,7 @@ JavaScript.</p>
    <li>
     <a data-link-type="biblio">[WEBASSEMBLY]</a> defines the following terms:
     <ul>
-     <li><a href="https://webassembly.github.io/spec/multipage/syntax/modules.html#syntax-funcidx">function index</a>
+     <li><a href="https://webassembly.github.io/spec/core/multipage/syntax/modules.html#syntax-funcidx">function index</a>
     </ul>
    <li>
     <a data-link-type="biblio">[WebIDL]</a> defines the following terms:
