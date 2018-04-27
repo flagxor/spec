@@ -11,6 +11,7 @@ Repository: WebAssembly/spec
 Markup Shorthands: css no, markdown yes, algorithm no
 Abstract: This document describes version 1.0 of the core WebAssembly standard, a safe, portable, low-level code format designed for efficient execution and compact representation.
 Prepare For TR: true
+Inline Tag Command: math ./util/bikeshed_math.py
 </pre>
 
 <pre class='biblio'>
